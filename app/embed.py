@@ -7,7 +7,6 @@ class Embed() :
         self.hostname = "login.microsoftonline.com"
         self.application_id = "72510915-eef4-41c6-80f2-c0dec001cdc1"
         self.report_id = "9f9203e2-4a97-4d37-82e8-4ef67756078f"
-        self.group_id = "dc363ede-3a8d-4163-9036-cbd09e2427ee"
         self.username = "jair.pieritz@ekwdobrasil.com.br"
         self.password = "Ekwdobrasil2020@"
     
