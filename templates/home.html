@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.21.0/dist/powerbi.min.js"></script>
+    <title>PBI Embed</title>
+  </head>
+  <body>
+    <h1>TESTE PBI AUTH</h1>
+    <div id="embed-container" style="height: 800px"></div>
+  </body>
+</html>
+
+<script>
+  
+  var model = {
+    reportId: "{{reportid}}",
+    embedUrl: "{{embedURL}}",
+    token: "{{token}}",
+  };
+
+  $(function () {
+    // 1 - Get DOM object for div that is report container
+    let reportContainer = document.getElementById("embed-container");
+
+    // 2 - Embed report using the Power BI JavaScript API.
+    let models = window["powerbi-client"].models;
+    let config = {
+      type: "report",
+      id: model.reportId,
+      embedUrl: model.embedUrl,
+      accessToken: model.token,
+      permissions: models.Permissions.All,
+      tokenType: models.TokenType.Aad,
+      viewMode: models.ViewMode.View,
+      settings: {
+        panes: {
+          filters: { expanded: false, visible: true },
+          pageNavigation: { visible: false },
+        },
+      },
+    };
+
+    // Embed the report and display it within the div container.
+    let report = powerbi.embed(reportContainer, config);
+
+    // 4 - Add logic to resize embed container on window resize event
+    let heightBuffer = 12;
+    let newHeight = $(window).height() - ($("header").height() + heightBuffer);
+    $("#embed-container").height(newHeight);
+    $(window).resize(function () {
+      var newHeight =
+        $(window).height() - ($("header").height() + heightBuffer);
+      $("#embed-container").height(newHeight);
+    });
+  });
+</script>
