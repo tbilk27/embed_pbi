@@ -1,1 +1,1 @@
-web: gunicorn -b :$PORT embed_pbi:app
+web: gunicorn -b :$PORT main:app
