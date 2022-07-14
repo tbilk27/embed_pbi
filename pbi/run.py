@@ -1,5 +1,4 @@
 import json
-from pickle import FALSE
 import requests
 
 class Embed() :

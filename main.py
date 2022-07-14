@@ -12,4 +12,4 @@ def home():
     return render_template("home.html", embedURL=embedURL, token=token, reportid=reportid)
 
 if __name__ == "__main__":
-    app.run(port=9000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

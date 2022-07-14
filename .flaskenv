@@ -1,0 +1,2 @@
+FLASK_APP=embed_pbi:app
+FLASK_ENV=development
