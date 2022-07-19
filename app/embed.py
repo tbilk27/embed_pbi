@@ -5,10 +5,10 @@ class Embed() :
 
     def __init__(self) :
         self.hostname = "login.microsoftonline.com"
-        self.application_id = "72510915-eef4-41c6-80f2-c0dec001cdc1"
-        self.report_id = "9f9203e2-4a97-4d37-82e8-4ef67756078f"
-        self.username = "jair.pieritz@ekwdobrasil.com.br"
-        self.password = "Ekwdobrasil2020@"
+        self.application_id = "5b324588-2377-4986-aa91-927943c8442a"
+        self.report_id = "d029e176-f082-4448-84f9-0a5b09ffbe78"
+        self.username = "melvin@2btec.com.br"
+        self.password = "@IIbtec2022#"
     
     def getToken(self):      
         url = f'https://{self.hostname}/common/oauth2/token'
